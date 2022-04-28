@@ -1,0 +1,153 @@
+@import "utilities/variables";
+@import "layout/contactos";
+@import "layout/galeria";
+@import "layout/giftcard";
+@import "layout/nosotros";
+
+
+
+body{
+    height: $alto-principal;
+}
+
+header{
+    .divTopMenu{
+        background-color: $color-principal;
+        padding: 5px;
+        margin-bottom: 5px;
+        top: 0;
+        z-index: 2;
+        text-align: center;
+        ul{
+            li{
+                display: inline-block;
+                margin: px;
+                text-transform: uppercase;
+                color: #4b5f5e;
+                @extend %font;
+                font-size: 10px;
+                font-weight: 700;
+                   
+                }
+            }
+            
+        }      
+    }
+    .divReservar, .divBook, .divGiftcard, .divInicio{
+        display: none;
+
+    }
+    .divMenu{    
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin: 10px;
+        h1 a{
+            display: inline-block;
+            text-decoration: none;
+            text-align: center;
+            @extend %font;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #4b5f5e;
+            font-size: 12px;
+            @include content(2px, 2px )
+        }
+        .menu{
+            justify-content: space-around;
+
+            ul{
+                display: flex;
+                justify-content: center;
+                list-style: none; 
+                li a{
+                    display: inline-block;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    @extend %font;
+                    color: #718b8b;
+                    font-size: 11px;
+                    @include content(10px, 10px);
+                        &:hover{
+                            background-color: whitesmoke;
+                            transform: scale(1.2);
+                    }
+                            
+                }       
+            }
+        }
+    
+}
+.mainHome{
+    display: grid;
+    grid-template-areas: "mainHome mainHome";
+    justify-content:center;
+    grid-area: mainHome;
+    img{
+        width: 100%;
+        overflow: auto;
+    }
+}
+footer{
+    .divFooter{
+        text-align: center;
+            p{
+                color: #7e9a99;
+                font-family: 'Courier New', Courier, monospace;
+                font-size: 12px;
+                font-weight: bold;
+                display: inline-block;
+                padding: 50px;
+            }
+        }
+    .divWhatsapp{
+        grid-area: divWhatsapp;
+            img{
+                position: fixed;
+                bottom: 2px;
+                right: 2px;
+                height: 50px;
+                width: 50px;
+            }
+    }
+}  
+
+@media only screen and (min-width:600px){
+    .divMenu h1 a{
+        font-size: 18px;
+    }
+
+    .divBook, .divReservar, .divInicio{
+        display: flex;
+    }
+    }
+
+@media only screen and (min-width:1024px){
+    .divMenu h1 a{
+        font-size: 35px;
+    }
+
+    .divGiftcard{
+        display: flex;
+    }
+
+    header .divTopMenu ul li{
+            font-size: 15px;
+    }
+
+    header .divMenu .menu ul li a{
+        font-size: 16px;
+    }
+
+   
+}
+
+@mixin content ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+%font{
+    font-family: 'Roboto', sans-serif;
+}
+
